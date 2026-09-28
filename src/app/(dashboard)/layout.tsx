@@ -342,9 +342,13 @@ export default function DashboardLayout({
         <main className="flex-1 overflow-y-auto p-3.5 sm:p-6 md:p-8 bg-[#F8FAFC]">
           <div className="max-w-7xl mx-auto space-y-6">
             {(() => {
-              // Check if current route is outside the Alumnos module
-              const isAlumnosModule = pathname.startsWith("/alumnos") || pathname.startsWith("/historial");
-              if (!isAlumnosModule) {
+              // Check if current route is outside the active Release 1 modules
+              const isRelease1Module =
+                pathname.startsWith("/alumnos") ||
+                pathname.startsWith("/historial") ||
+                pathname.startsWith("/matriculas") ||
+                pathname.startsWith("/oferta-academica");
+              if (!isRelease1Module) {
                 const currentNavItem = navigation.find(
                   (item) => pathname === item.href || (item.href !== "/" && pathname.startsWith(`${item.href}/`))
                 );
